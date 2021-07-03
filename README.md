@@ -13,3 +13,17 @@
 ```
 npx create-app-react react-styled-component --template typescript
 ```
+
+### Install styled-components
+
+- CSS in JS인 `styled-components` 라이브러리를 설치합니다.
+
+  ```
+  yarn add styled-components
+  ```
+
+  또는
+
+  ```
+  npm i styled-components
+  ```
