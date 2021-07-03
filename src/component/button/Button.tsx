@@ -7,13 +7,13 @@ type ButtonPropsType = {
 };
 
 const StyledButton = styled.button`
-    background: transparent;
     border-radius: 3px;
-    border: 2px solid palevioletred;
-    color: palevioletred;
     margin: 0 1em;
     padding: 0.25em 1em;
 
+    border: 1px solid palevioletred;
+    background: transparent;
+    color: palevioletred;
     ${(props: ButtonPropsType) =>
         props.primary &&
         css`
@@ -22,8 +22,25 @@ const StyledButton = styled.button`
         `}
 `;
 
+const ExtendsStyledButton = styled(StyledButton)`
+    border: 1px solid red;
+    background: white;
+    color: red;
+    ${(props: ButtonPropsType) =>
+        props.primary &&
+        css`
+            background: red;
+            color: white;
+        `}
+`;
+
 const Button = ({children, ...rest}: ButtonPropsType): ReactElement => {
-    return <StyledButton {...rest}>{children}</StyledButton>;
+    return (
+        <>
+            <StyledButton {...rest}>{children}</StyledButton>
+            <ExtendsStyledButton {...rest}>{children}</ExtendsStyledButton>
+        </>
+    );
 };
 
 export default Button;
