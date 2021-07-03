@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Button from './component/button/Button';
 
-function App() {
+const App = (): ReactElement => {
     return (
         <div className="App">
             <header className="App-header">
+                <Button>스타일 컴포넌트</Button>
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
                     Edit <code>src/App.tsx</code> and save to reload.
@@ -16,6 +18,6 @@ function App() {
             </header>
         </div>
     );
-}
+};
 
 export default App;
