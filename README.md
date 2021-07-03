@@ -16,20 +16,21 @@ npx create-app-react react-styled-component --template typescript
 
 ### Formatting
 
--   Prettier와 ESLint를 이용하여 코드 컨벤션을 맞출 수 있습니다.
--   `prettier` `eslint` `eslint-config-prettier` 라이브러리를 dev 옵션으로 설치합니다.
-
-    ```
-    yarn add prettier eslint eslint-config-prettier --dev
-    ```
-
-    OR
-
-    ```
-    npm i prettier eslint eslint-config-prettier --save-dev
-    ```
-
--   VS Code를 사용하는 경우 `ESLint` `Prettier - Code fomatter` Extension을 설치하여야 합니다.
+-   ESlint 설치 및 초기화
+    -   eslint 를 설치합니다.
+        ```
+        yarn add eslint --dev
+        ```
+    -   eslint를 초기화 하여 `.eslintrc.json` 파일이 생성되도록 합니다.
+        ```
+        npx eslint --init
+        ```
+-   Prettier
+    -   prettier와 eslint를 연동하기 위한 eslint-config-prettier, eslint-plugin-prettier를 설치합니다.
+        ```
+        yarn add prettier eslint-config-prettier eslint-plugin-prettier --dev
+        ```
+-   VS Code를 사용하는 경우 `ESLint` `Prettier - Code fomatter` Extension을 설치합니다.
 
 ### Install styled-components
 
@@ -37,10 +38,4 @@ npx create-app-react react-styled-component --template typescript
 
     ```
     yarn add styled-components
-    ```
-
-    또는
-
-    ```
-    npm i styled-components
     ```
