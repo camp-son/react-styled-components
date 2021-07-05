@@ -1,9 +1,11 @@
 import React, {ReactElement} from 'react';
-import styled, {css} from 'styled-components';
+import styled, {css, ThemeProps} from 'styled-components';
+import {ThemeItem} from '../../theme/type/ThemeItem';
 
-type ButtonPropsType = {
+type ButtonPropsType = ThemeProps<ThemeItem> & {
     children?: React.ReactChild;
     primary?: boolean;
+    onClick?: () => void;
 };
 
 const StyledButton = styled.button<ButtonPropsType>`
@@ -11,36 +13,22 @@ const StyledButton = styled.button<ButtonPropsType>`
     margin: 0 1em;
     padding: 0.25em 1em;
 
-    border: 1px solid palevioletred;
-    background: transparent;
-    color: palevioletred;
-    ${(props: ButtonPropsType) =>
-        props.primary &&
-        css`
-            background: palevioletred;
-            color: white;
-        `}
-`;
+    ${(props: ButtonPropsType) => css`
+        background: ${props.theme.button.backgroundColor};
+        border: 1px solid ${props.theme.button.border};
+        color: ${props.theme.button.color};
+    `}
 
-const ExtendsStyledButton = styled(StyledButton)<ButtonPropsType>`
-    border: 1px solid palevioletred;
-    background: white;
-    color: red;
     ${(props: ButtonPropsType) =>
         props.primary &&
         css`
-            background: red;
-            color: white;
+            background: ${props.theme.button.color};
+            color: ${props.theme.button.backgroundColor};
         `}
 `;
 
 const Button = ({children, ...rest}: ButtonPropsType): ReactElement => {
-    return (
-        <>
-            <StyledButton {...rest}>{children}</StyledButton>
-            <ExtendsStyledButton {...rest}>{children}</ExtendsStyledButton>
-        </>
-    );
+    return <StyledButton {...rest}>{children}</StyledButton>;
 };
 
 export default Button;

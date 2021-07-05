@@ -39,3 +39,24 @@ npx create-app-react react-styled-component --template typescript
     ```
     yarn add styled-components @types/styled-components
     ```
+
+### Theme 관리
+
+-   전역에서 사용하는 테마를 어떻게 관리해야할지 구조를 잡아보았습니다.
+
+    ```
+        - component // 컴포넌트 관리 폴더
+        - theme     // 테마 관리 폴더
+            - type  // 테마에서 사용될 타입 폴더
+    ```
+
+-   styled-components에서 제공하는 `ThemeProvider`를 사용하기로 하였습니다.
+-   `theme` 폴더에 테마별 파일을 생성하였고, 그 안에 원하는 색상을 추가하였습니다.
+-   Button 컴포넌트를 Presentational Component로 만들고 Container Component(여기에선 App)에서 필요한 prop과 이벤트를 내려주었습니다.
+-   Theme 타입을 주는 것에서 약간의 어려움을 느꼈습니다. (어떤 식으로 줘야하지? ㅜ)
+
+### 남은 기능 구현
+
+-   Presentatinal / Container 패턴 형태로 좀 더 보완하기
+-   변경된 테마를 기억하고 있다가 새로고침시에 반영하기
+-   좀 더 다양한 컴포넌트와 styled-components 활용해보기
