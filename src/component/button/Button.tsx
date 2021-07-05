@@ -6,7 +6,7 @@ type ButtonPropsType = {
     primary?: boolean;
 };
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<ButtonPropsType>`
     border-radius: 3px;
     margin: 0 1em;
     padding: 0.25em 1em;
@@ -22,8 +22,8 @@ const StyledButton = styled.button`
         `}
 `;
 
-const ExtendsStyledButton = styled(StyledButton)`
-    border: 1px solid red;
+const ExtendsStyledButton = styled(StyledButton)<ButtonPropsType>`
+    border: 1px solid palevioletred;
     background: white;
     color: red;
     ${(props: ButtonPropsType) =>
